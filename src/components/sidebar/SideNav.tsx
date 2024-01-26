@@ -1,16 +1,13 @@
-import { FC } from "react";
 import { List } from "@material-tailwind/react";
+
+import { FC } from "react";
+
 import SideNavList from "./SideNavList";
 
-interface SideNavProps {
-  open: number;
-  handleOpen: (index: number) => void;
-}
-
-const SideNav: FC<SideNavProps> = ({ open, handleOpen }) => {
+const SideNav: FC = () => {
   return (
     <List placeholder="">
-      <SideNavList open={open} handleOpen={handleOpen} />
+      <SideNavList />
     </List>
   );
 };

@@ -14,16 +14,10 @@ import { FC, useEffect, useState } from "react";
 
 import SideNavItem from "./SideNavItem";
 
-interface SideNavListProps {
-  open: number;
-  handleOpen: (index: number) => void;
-}
-
-const SideNavList: FC<SideNavListProps> = ({ open, handleOpen }) => {
+const SideNavList: FC = () => {
   const pathname = usePathname();
 
   const [activeItem, setActiveItem] = useState("");
-  const [activeSubItem, setActiveSubItem] = useState("");
 
   const handleItemClick = (item: string) => {
     setActiveItem(item);
@@ -32,26 +26,18 @@ const SideNavList: FC<SideNavListProps> = ({ open, handleOpen }) => {
   useEffect(() => {
     const pathParts = pathname.split("/");
 
-    if (pathParts.length > 1) {
-      setActiveItem(pathParts[1]);
-      setActiveSubItem("");
-    }
-
-    if (pathParts.length > 2) {
-      setActiveSubItem(pathParts[2]);
-    }
+    setActiveItem(pathParts[1]);
   }, [pathname]);
 
   return (
     <>
       <SideNavItem
         label="Contacts"
-        href="/contacts"
+        href="/chats"
         icon={<ChatBubbleLeftRightIcon />}
-        active={activeItem === "contacts"}
+        active={activeItem === "chats"}
         onClick={() => {
-          handleOpen(0);
-          handleItemClick("contacts");
+          handleItemClick("chats");
         }}
       />
       <SideNavItem
@@ -60,7 +46,6 @@ const SideNavList: FC<SideNavListProps> = ({ open, handleOpen }) => {
         icon={<UsersIcon />}
         active={activeItem === "channels"}
         onClick={() => {
-          handleOpen(0);
           handleItemClick("channels");
         }}
       />
@@ -71,7 +56,6 @@ const SideNavList: FC<SideNavListProps> = ({ open, handleOpen }) => {
         icon={<CloudIcon />}
         active={activeItem === "spaces"}
         onClick={() => {
-          handleOpen(0);
           handleItemClick("spaces");
         }}
       />
@@ -82,7 +66,6 @@ const SideNavList: FC<SideNavListProps> = ({ open, handleOpen }) => {
         icon={<BellAlertIcon />}
         active={activeItem === "notifications"}
         onClick={() => {
-          handleOpen(0);
           handleItemClick("notifications");
         }}
       />
@@ -95,7 +78,6 @@ const SideNavList: FC<SideNavListProps> = ({ open, handleOpen }) => {
         icon={<UserPlusIcon />}
         active={activeItem === "createContact"}
         onClick={() => {
-          handleOpen(0);
           handleItemClick("createContact");
         }}
       />
@@ -106,7 +88,6 @@ const SideNavList: FC<SideNavListProps> = ({ open, handleOpen }) => {
         icon={<PlusCircleIcon />}
         active={activeItem === "createChannel"}
         onClick={() => {
-          handleOpen(0);
           handleItemClick("createChannel");
         }}
       />

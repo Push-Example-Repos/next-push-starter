@@ -1,6 +1,16 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
-const GradientIcon = ({ icon, isHovered, fill }) => {
+interface GradientIconProps {
+  icon: ReactElement;
+  isHovered: boolean | undefined;
+  fill?: boolean | undefined;
+}
+
+const GradientIcon: React.FC<GradientIconProps> = ({
+  icon,
+  isHovered,
+  fill,
+}) => {
   return (
     <svg className="h-6 w-6" viewBox="0 0 24 24">
       <defs>

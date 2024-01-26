@@ -4,7 +4,7 @@ import { useAccount } from "wagmi";
 import { useSelector } from "react-redux";
 
 import ConnectSignBtn from "./ConnectSignBtn";
-import { SignWalletBtn } from "../ui/OnBoardButtons";
+import { SignWalletBtn } from "../ui/buttons/OnBoardButtons";
 
 interface State {
   modals: {
