@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC } from "react";
-import { ConnectWalletBtn } from "@/components/ui/ClientButtons";
+import { ConnectWalletBtn } from "@/components/ui/OnBoardButtons";
 
 interface ConnectSignBtnProps {
   name: string;

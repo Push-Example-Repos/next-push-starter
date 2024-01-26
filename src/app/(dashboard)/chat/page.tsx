@@ -1,5 +1,5 @@
 const ChatPage = () => {
-  return <div>ChatPage</div>;
+  return <div className="flex-1">ChatPage</div>;
 };
 
 export default ChatPage;

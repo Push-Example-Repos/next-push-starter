@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const plugin = require("tailwindcss/plugin");
 
 const config: Config = {
   content: [
@@ -6,14 +7,30 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+
   theme: {
     extend: {
       backgroundImage: {
         "gradient-push": "linear-gradient(225deg, #FF94A6, #8247E5)",
+        "gradient-push-light":
+          "linear-gradient(to right, #ff94a61a, #8147e51a)",
         "gradient-linear": "linear-gradient(to right, #ffcfd7, #bfa8e8)",
       },
     },
   },
-  plugins: [],
+
+  plugins: [
+    plugin(function ({ addUtilities }: { addUtilities: any }) {
+      const newUtilities = {
+        ".gradient-text": {
+          "background-clip": "text",
+          "-webkit-background-clip": "text",
+          "-webkit-text-fill-color": "transparent",
+        },
+      };
+
+      addUtilities(newUtilities);
+    }),
+  ],
 };
 export default config;

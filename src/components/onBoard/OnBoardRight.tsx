@@ -18,9 +18,9 @@ const OnBoardRight = () => {
       <DialogHeader placeholder="" className="flex items-center p-6">
         <h3 className="ml-6 w-full text-center text-xl font-bold">Sign In</h3>
 
-        <IconButton placeholder="" size="sm" variant="text">
+        <div className="hover:bg-gray-200 p-2 rounded-xl cursor-pointer">
           <XMarkIcon className="h-6 w-6" />
-        </IconButton>
+        </div>
       </DialogHeader>
 
       <DialogBody placeholder="" className="border-white p-4 font-grotesque">

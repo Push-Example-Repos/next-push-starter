@@ -36,7 +36,7 @@ const WalletItem: FC<WalletItemProps> = ({ bg, src, name }) => {
         />
       </div>
 
-      <p className="font-medium">{name}</p>
+      <p className="font-medium text-gray-900">{name}</p>
     </li>
   );
 };
