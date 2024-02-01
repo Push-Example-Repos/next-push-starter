@@ -5,8 +5,8 @@ import "./globals.css";
 
 import { Toaster } from "react-hot-toast";
 
-import ReduxProvider from "@/providers/reduxProvider";
-import { WagmiProvider } from "@/providers/wagmiProvider";
+import ReduxProvider from "@/providers/ReduxProvider";
+import { WagmiProvider } from "@/providers/WagmiProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 

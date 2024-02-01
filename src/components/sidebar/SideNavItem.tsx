@@ -1,14 +1,14 @@
 import { ListItem, ListItemPrefix } from "@material-tailwind/react";
 
 import Link from "next/link";
-import { FC, useState, ReactNode } from "react";
+import { FC, useState, ReactElement } from "react";
 
 import GradientIcon from "../ui/GradientIcon";
 
 interface SideNavItemProps {
   label: string;
-  icon: ReactNode;
-  fill?: string;
+  icon: ReactElement;
+  fill?: boolean;
   href: string;
   active?: boolean;
   onClick?: () => void;
@@ -28,8 +28,8 @@ const SideNavItem: FC<SideNavItemProps> = ({
     <Link href={href} onClick={onClick}>
       <ListItem
         placeholder=""
-        className={`sideNavItem hover:bg-gradient-push-light focus:bg-black active:bg-black space-x-2 ${
-          active ? "bg-black" : ""
+        className={`sideNavItem hover:bg-gradient-push-light focus:bg-gradient-push-light active:bg-gradient-push-light transition-colors space-x-2 ${
+          active ? "bg-gradient-push-light" : ""
         }`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

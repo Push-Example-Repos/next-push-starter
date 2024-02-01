@@ -1,6 +1,11 @@
-"use client";
+import { FC } from "react";
 
-const Pubkey = ({ address, size = "text-base" }) => {
+interface PubkeyProps {
+  address: string;
+  size?: string;
+}
+
+const Pubkey: FC<PubkeyProps> = ({ address, size = "text-base" }) => {
   const handlePubKeyClick = () => {
     navigator.clipboard.writeText(address);
   };

@@ -1,7 +1,17 @@
 import Link from "next/link";
 import Image from "next/legacy/image";
 
-const Logo = ({ width = 90, height = 34, textSize = "text-xl" }) => {
+interface LogoProps {
+  width?: number;
+  height?: number;
+  textSize?: string;
+}
+
+const Logo: React.FC<LogoProps> = ({
+  width = 90,
+  height = 34,
+  textSize = "text-xl",
+}) => {
   return (
     <Link
       className="prevent-select flex w-fit items-center gap-2 mb-4"
