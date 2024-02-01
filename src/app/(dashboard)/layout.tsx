@@ -10,7 +10,7 @@ export default function RootLayout({
     <div className="flex bg-gradient-linear gap-2">
       <Sidebar />
 
-      <section className="flex-1 space-y-2">
+      <section className="flex flex-1 flex-col mb-2 space-y-2">
         <PageHeader />
 
         {children}

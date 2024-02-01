@@ -10,10 +10,16 @@ const config: Config = {
 
   theme: {
     extend: {
+      colors: {
+        "bubble-gum": "#e03dc1",
+        purple: "#8247E5",
+        "coral-pink": "#FF94a6",
+      },
+
       backgroundImage: {
-        "gradient-push": "linear-gradient(225deg, #FF94A6, #8247E5)",
+        "gradient-push": "linear-gradient(225deg, #e03dc1, #8247E5)",
         "gradient-push-light":
-          "linear-gradient(to right, #ff94a61a, #8147e51a)",
+          "linear-gradient(to right, #e03dc11a, #8147e51a)",
         "gradient-linear": "linear-gradient(to right, #ffcfd7, #bfa8e8)",
       },
     },
