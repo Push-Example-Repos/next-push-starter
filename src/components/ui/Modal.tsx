@@ -51,7 +51,10 @@ const Modal: React.FC<ModalProps> = ({
         <div className="shrink-0 p-4 text-blue-gray-900 antialiased font-sans text-2xl font-bold leading-snug flex items-center justify-between">
           <h3 className="mb-1">{title}</h3>
 
-          <XMarkIcon className="h-6 w-6 cursor-pointer" onClick={onClose} />
+          <XMarkIcon
+            className="h-8 w-8 rounded cursor-pointer p-1 hover:bg-gray-100 transition-colors"
+            onClick={onClose}
+          />
         </div>
 
         {children}

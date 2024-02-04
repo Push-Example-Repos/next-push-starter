@@ -41,8 +41,29 @@ const pushSlice = createSlice({
       state.recentContact = action.payload;
     },
 
-    updateRecentRequest: (state: PushState, action: PayloadAction<any[]>) => {
+    addRecentContact: (
+      state: PushState,
+      action: PayloadAction<WritableDraft<Contact>>
+    ) => {
+      state.recentContact.push(action.payload);
+    },
+
+    setRecentRequest: (state: PushState, action: PayloadAction<Contact[]>) => {
       state.recentRequest = action.payload;
+    },
+
+    updateRecentRequest: (
+      state: PushState,
+      action: PayloadAction<Contact[]>
+    ) => {
+      state.recentRequest = action.payload;
+    },
+
+    addRecentRequest: (
+      state: PushState,
+      action: PayloadAction<WritableDraft<Contact>>
+    ) => {
+      state.recentRequest.push(action.payload);
     },
 
     setMessages: (
@@ -71,6 +92,9 @@ export const {
   setPushSign,
   setCurrentContact,
   setRecentContact,
+  addRecentContact,
+  setRecentRequest,
+  addRecentRequest,
   resetContacts,
   setMessages,
   updateMessages,

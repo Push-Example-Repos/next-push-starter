@@ -14,6 +14,7 @@ interface IContactsItem {
 }
 
 const ContactsItem: FC<IContactsItem> = ({ chat }) => {
+  console.log(chat);
   let flag = true;
 
   const dispatch = useDispatch();
@@ -28,23 +29,30 @@ const ContactsItem: FC<IContactsItem> = ({ chat }) => {
     dispatch(setCurrentContact(chat));
   };
 
-  useEffect(() => {
-    const fetchMessage = async () => {
-      const latestMessage = await pushSign.chat.latest(pubKey);
+  // useEffect(() => {
+  //   const fetchMessage = async () => {
+  //     console.log("fetching message");
+  //     const latestMessage = await pushSign.chat.latest(pubKey);
 
-      setMessage(
-        latestMessage[0].messageContent.split("::")[1] ||
-          latestMessage[0].messageContent
-      );
-    };
+  //     setMessage(
+  //       latestMessage[0].messageContent.split("::")[1] ||
+  //         latestMessage[0].messageContent
+  //     );
+  //   };
 
-    if (currentContact?.did.split(":")[1] === pubKey || flag) {
-      flag = false;
-      fetchMessage();
-    }
-  }, [messages]);
+  //   if (!chat) return;
 
-  if (!pushSign || chat) return;
+  //   if (
+  //     currentContact.length > 0 &&
+  //     (currentContact.did.split(":")[1] === pubKey || flag)
+  //   ) {
+  //     console.log("fetching message");
+  //     flag = false;
+  //     fetchMessage();
+  //   }
+  // }, [messages, currentContact]);
+
+  if (!pushSign || !chat) return;
 
   const pubKey = chat.did.split(":")[1];
 
@@ -70,9 +78,9 @@ const ContactsItem: FC<IContactsItem> = ({ chat }) => {
               {pubKey.slice(-4)}
             </h3>
 
-            <div className="text-xs font-medium w-24 hide-scroll overflow-hidden whitespace-nowrap scroll-on-hover">
+            {/* <div className="text-xs font-medium w-24 hide-scroll overflow-hidden whitespace-nowrap scroll-on-hover">
               <p>{message}</p>
-            </div>
+            </div> */}
           </div>
         </div>
 

@@ -15,7 +15,7 @@ interface RequestsItemProps {
 const RequestsItem: FC<RequestsItemProps> = ({ request }) => {
   const pubKey = request.did.split(":")[1];
 
-  const pushSign = useSelector((state: any) => state.contacts.pushSign);
+  const pushSign = useSelector((state: any) => state.push.pushSign);
 
   const handleAcceptRequest = async () => {
     await pushSign.chat.accept(pubKey);
@@ -43,10 +43,10 @@ const RequestsItem: FC<RequestsItemProps> = ({ request }) => {
 
         <div>
           <h3 className="text-base font-bold text-black">
-            {pubKey.slice(0, 6)}...{pubKey.slice(-4)}
+            {pubKey.slice(0, 8)}...{pubKey.slice(-4)}
           </h3>
 
-          <p className="text-xs">{request.msg.messageContent}</p>
+          <p className="text-xs">{request.msg}</p>
         </div>
       </div>
 

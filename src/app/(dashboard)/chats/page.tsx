@@ -3,12 +3,10 @@ import NewContactsModal from "@/components/modals/NewContactsModal";
 
 const ChatPage = () => {
   return (
-    <>
-      <div className="flex flex-1 flex-grow bg-white/80 rounded-l-xl">
-        <NewContactsModal />
-        <ContactsTab />
-      </div>
-    </>
+    <div className="flex flex-1 flex-grow bg-white/80 rounded-l-xl">
+      <NewContactsModal />
+      <ContactsTab />
+    </div>
   );
 };
 
