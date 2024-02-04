@@ -7,7 +7,7 @@ const PageHeading: FC = () => {
   const path = usePathname();
 
   return (
-    <h2 className="gradient-text bg-gradient-push text-2xl font-bold">
+    <h2 className="gradient-text bg-gradient-push text-2xl font-bold prevent-select">
       {
         {
           "/home": "Home",
