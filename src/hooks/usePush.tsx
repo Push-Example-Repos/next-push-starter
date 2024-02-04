@@ -4,7 +4,11 @@ import { useEthersSigner } from "@/wagmi/EthersSigner";
 import { useDispatch } from "react-redux";
 import { PushAPI, CONSTANTS } from "@pushprotocol/restapi";
 
-import { setPushSign, setRecentRequest } from "@/redux/slice/pushSlice";
+import {
+  setPushSign,
+  setRecentContact,
+  setRecentRequest,
+} from "@/redux/slice/pushSlice";
 import toast from "react-hot-toast";
 
 export default function usePush() {
@@ -50,8 +54,23 @@ export default function usePush() {
               dispatch(setRecentRequest(filterRecentRequest));
             })
           : data.event.includes("accept")
-          ? console.log("ACCEPT", data)
-          : toast.error("Your request has been rejected");
+          ? user.chat.list("CHATS").then((chats: any) => {
+              const filterRecentContact = chats.map((chat: any) => ({
+                profilePicture: chat.profilePicture,
+                did: chat.did,
+                name: chat.name,
+                about: chat.about,
+                chatId: chat.chatId,
+                msg: {
+                  content: chat.msg.messageContent,
+                  timestamp: chat.msg.timestamp,
+                  fromDID: chat.msg.fromDID,
+                },
+              }));
+
+              dispatch(setRecentContact(filterRecentContact));
+            })
+          : toast.error("Request Rejected");
       });
 
       stream.on(CONSTANTS.STREAM.CHAT_OPS, (data: any) => {

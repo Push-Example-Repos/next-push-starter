@@ -12,7 +12,8 @@ interface PushState {
   pushSign: PushSign;
   recentRequest: Contact[];
   recentContact: Contact[];
-  currentContact: Contact[];
+  currentContact: Contact;
+  newContact: Contact;
 }
 
 const initialState: PushState = {
@@ -20,7 +21,8 @@ const initialState: PushState = {
   pushSign: {},
   recentRequest: [],
   recentContact: [],
-  currentContact: [],
+  currentContact: {},
+  newContact: {},
 };
 
 const pushSlice = createSlice({
@@ -34,7 +36,7 @@ const pushSlice = createSlice({
     },
 
     setCurrentContact: (state: PushState, action: PayloadAction<Contact>) => {
-      state.currentContact = [action.payload];
+      state.currentContact = action.payload;
     },
 
     setRecentContact: (state: PushState, action: PayloadAction<Contact[]>) => {
@@ -52,11 +54,10 @@ const pushSlice = createSlice({
       state.recentRequest = action.payload;
     },
 
-    updateRecentRequest: (
-      state: PushState,
-      action: PayloadAction<Contact[]>
-    ) => {
-      state.recentRequest = action.payload;
+    updateRecentRequest: (state: PushState, action: PayloadAction<string>) => {
+      state.recentRequest = state.recentRequest.filter(
+        (request) => request.did !== action.payload
+      );
     },
 
     addRecentRequest: (

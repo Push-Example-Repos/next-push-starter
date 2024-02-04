@@ -26,7 +26,21 @@ const Contacts: FC = () => {
     const initializeChats = async () => {
       try {
         const chatsLists = await pushSign.chat.list("CHATS");
-        dispatch(setRecentContact(chatsLists));
+
+        const filterRecentContact = chatsLists.map((chat: any) => ({
+          profilePicture: chat.profilePicture,
+          did: chat.did,
+          name: chat.name,
+          about: chat.about,
+          chatId: chat.chatId,
+          msg: {
+            content: chat.msg.messageContent,
+            timestamp: chat.msg.timestamp,
+            fromDID: chat.msg.fromDID,
+          },
+        }));
+
+        dispatch(setRecentContact(filterRecentContact));
         setIsLoading(false);
       } catch (error) {
         toast.error("Error fetching contacts");
