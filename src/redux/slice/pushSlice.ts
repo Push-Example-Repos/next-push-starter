@@ -29,36 +29,39 @@ const pushSlice = createSlice({
   initialState,
 
   reducers: {
-    setPushSign: (state, action: PayloadAction<PushSign>) => {
+    setPushSign: (state: PushState, action: PayloadAction<PushSign>) => {
       state.pushSign = action.payload;
     },
 
-    setCurrentContact: (state, action: PayloadAction<Contact>) => {
+    setCurrentContact: (state: PushState, action: PayloadAction<Contact>) => {
       state.currentContact = [action.payload];
     },
 
-    setRecentContact: (state, action: PayloadAction<Contact[]>) => {
+    setRecentContact: (state: PushState, action: PayloadAction<Contact[]>) => {
       state.recentContact = action.payload;
     },
 
-    updateRecentRequest: (state, action: PayloadAction<any[]>) => {
+    updateRecentRequest: (state: PushState, action: PayloadAction<any[]>) => {
       state.recentRequest = action.payload;
     },
 
-    setMessages: (state, action: PayloadAction<MessageResponse[]>) => {
+    setMessages: (
+      state: PushState,
+      action: PayloadAction<MessageResponse[]>
+    ) => {
       state.messages = action.payload.map(
-        (message) => message as WritableDraft<MessageResponse>
+        (message: any) => message as WritableDraft<MessageResponse>
       );
     },
 
     updateMessages: (
-      state,
+      state: PushState,
       action: PayloadAction<WritableDraft<MessageResponse>>
     ) => {
       state.messages.push(action.payload);
     },
 
-    resetContacts: (state) => {
+    resetContacts: (state: PushState) => {
       initialState;
     },
   },

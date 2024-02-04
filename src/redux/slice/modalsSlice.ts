@@ -1,13 +1,13 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 interface ModalsState {
-  openAddContact: boolean;
+  isNewContactsModalOpen: boolean;
   activeWallet: string | null;
 }
 
 const initialState: ModalsState = {
   activeWallet: null,
-  openAddContact: false,
+  isNewContactsModalOpen: false,
 };
 
 const modalsSlice = createSlice({
@@ -16,19 +16,16 @@ const modalsSlice = createSlice({
   initialState,
 
   reducers: {
-    toggleAddContactModal: (
-      state: ModalsState,
-      action: PayloadAction<boolean>
-    ) => {
-      state.openAddContact = action.payload;
+    toggleNewContactsModal: (state: ModalsState) => {
+      state.isNewContactsModalOpen = !state.isNewContactsModalOpen;
     },
 
-    setActiveWallet: (state, action) => {
+    setActiveWallet: (state: ModalsState, action) => {
       state.activeWallet = action.payload;
     },
   },
 });
 
-export const { toggleAddContactModal, setActiveWallet } = modalsSlice.actions;
+export const { toggleNewContactsModal, setActiveWallet } = modalsSlice.actions;
 
 export default modalsSlice.reducer;

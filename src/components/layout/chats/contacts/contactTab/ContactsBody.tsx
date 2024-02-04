@@ -3,6 +3,8 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 import AddContactsBtn from "./AddContactsBtn";
+import Contacts from "./Contacts";
+import { Button } from "@material-tailwind/react";
 
 const ContactsBody = () => {
   return (
@@ -25,7 +27,9 @@ const ContactsBody = () => {
           <AddContactsBtn />
         </div>
 
-        <div className="overflow-y-auto mb-20 hide-scroll">Contacts</div>
+        <div className="overflow-y-auto mb-20 hide-scroll">
+          <Contacts />
+        </div>
       </div>
     </div>
   );
