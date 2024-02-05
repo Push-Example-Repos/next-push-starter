@@ -26,7 +26,7 @@ const ChatContainer = () => {
   }, [isConnected, signer, pushSign, initializePush]);
 
   return (
-    <div className="flex-[3] my-2 bg-white rounded-l-xl">
+    <div className="flex flex-[3] my-2 bg-white rounded-l-xl">
       {Object.keys(currentContact).length === 0 ? (
         <ChatBackground />
       ) : (
