@@ -40,6 +40,7 @@ const SideNavList: FC = () => {
           handleItemClick("chats");
         }}
       />
+
       <SideNavItem
         label="Channels"
         href="/channels"
@@ -79,6 +80,16 @@ const SideNavList: FC = () => {
         active={activeItem === "createContact"}
         onClick={() => {
           handleItemClick("createContact");
+        }}
+      />
+
+      <SideNavItem
+        label="Create Group"
+        href="/Create Group"
+        icon={<UserPlusIcon />}
+        active={activeItem === "createGroup"}
+        onClick={() => {
+          handleItemClick("createGroup");
         }}
       />
 
