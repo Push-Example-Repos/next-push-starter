@@ -7,7 +7,7 @@ const ChatPage = () => {
     <>
       <NewContactsModal />
 
-      <div className="flex flex-1 flex-grow bg-white/80 rounded-l-xl gap-3">
+      <div className="flex flex-1 flex-grow bg-white/80 rounded-l-xl gap-3 overflow-hidden">
         <ContactsTab />
         <ChatContainer />
       </div>

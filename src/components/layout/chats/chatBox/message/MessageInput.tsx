@@ -1,16 +1,15 @@
 "use client";
 
 import {
+  ArrowPathIcon,
   PaperAirplaneIcon,
   ChatBubbleLeftIcon,
 } from "@heroicons/react/24/outline";
-
 import { Button } from "@material-tailwind/react";
 
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef, useState, MouseEvent, KeyboardEvent } from "react";
-import { ArrowPathIcon } from "@heroicons/react/24/solid";
 
 const MessageInput = () => {
   const dispatch = useDispatch();

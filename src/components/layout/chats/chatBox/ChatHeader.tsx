@@ -10,7 +10,7 @@ const ChatHeader = () => {
   const currentContact = useSelector((state: any) => state.push.currentContact);
 
   return (
-    <div className="flex justify-between items-center w-full py-2 px-5 border-b border-primary-white relative z-10 bg-gray-50">
+    <div className="flex justify-between items-center w-full py-2 px-5 border-b border-primary-white relative z-10 bg-gray-50 rounded-tl-xl">
       <div className="flex gap-3">
         <div className="w-11 h-11 aspect-square rounded-full overflow-hidden">
           <Image

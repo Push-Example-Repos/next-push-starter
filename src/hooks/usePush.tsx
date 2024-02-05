@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { PushAPI, CONSTANTS } from "@pushprotocol/restapi";
 
 import {
+  addMessage,
   setPushSign,
   setRecentContact,
   setRecentRequest,
@@ -40,7 +41,15 @@ export default function usePush() {
 
       stream.on(CONSTANTS.STREAM.CHAT, async (data: any) => {
         data.event.includes("message")
-          ? console.log("MESSAGE", data)
+          ? dispatch(
+              addMessage({
+                meta: data.meta,
+                fromDID: data.from,
+                timestamp: data.timestamp,
+                messageContent: data.message.content,
+                messageType: data.message.type,
+              })
+            )
           : data.event.includes("request")
           ? user.chat.list("REQUESTS").then((requests: any) => {
               const filterRecentRequest = requests.map((request: any) => ({

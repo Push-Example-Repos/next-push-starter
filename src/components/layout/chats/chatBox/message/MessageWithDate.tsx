@@ -14,7 +14,7 @@ const MessageWithDate: React.FC<MessageWithDateProps> = ({
   nextMessage,
   index,
 }) => {
-  const pushSign = useSelector((state: any) => state.contacts.pushSign);
+  const pushSign = useSelector((state: any) => state.push.pushSign);
 
   const messageDate = new Date(Number(message.timestamp)).toLocaleDateString();
   const messageTime = new Date(Number(message.timestamp)).toLocaleTimeString(
@@ -34,7 +34,7 @@ const MessageWithDate: React.FC<MessageWithDateProps> = ({
   return (
     <div>
       {index === 0 && (
-        <div className="text-center text-xs font-medium text-gray-400 my-2 font-sans">
+        <div className="text-center text-xs text-gray-400 my-2">
           {messageDate}
         </div>
       )}
@@ -45,10 +45,10 @@ const MessageWithDate: React.FC<MessageWithDateProps> = ({
         }`}
       >
         <div
-          className={`text-sm text-primary-black px-4 py-2 rounded-3xl font-medium w-fit flex gap-1 ${
+          className={`text-sm px-4 py-2 rounded-3xl font-medium w-fit flex gap-1 ${
             pubKey === pushSign.account
-              ? "bg-[#ffecec] rounded-tr-none"
-              : "bg-gray-200 rounded-tl-none"
+              ? "bg-coral-pink/40 text-black rounded-tr-none"
+              : "bg-purple/40 rounded-tl-none"
           }`}
         >
           <div>
@@ -68,7 +68,7 @@ const MessageWithDate: React.FC<MessageWithDateProps> = ({
       </div>
 
       {nextMessageDate && messageDate !== nextMessageDate && (
-        <div className="text-center text-xs font-medium text-gray-400 my-2 font-sans">
+        <div className="text-center text-xs text-gray-400 my-2">
           {nextMessageDate}
         </div>
       )}

@@ -76,7 +76,7 @@ const pushSlice = createSlice({
       );
     },
 
-    updateMessages: (
+    addMessage: (
       state: PushState,
       action: PayloadAction<WritableDraft<MessageResponse>>
     ) => {
@@ -98,7 +98,7 @@ export const {
   addRecentRequest,
   resetContacts,
   setMessages,
-  updateMessages,
+  addMessage,
   updateRecentRequest,
 } = pushSlice.actions;
 

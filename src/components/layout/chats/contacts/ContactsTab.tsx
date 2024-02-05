@@ -29,7 +29,7 @@ const ContactsTab = () => {
   ];
 
   return (
-    <Tabs value={activeTab} className="flex-grow flex flex-col mx-2 flex-1">
+    <Tabs value={activeTab} className="flex-grow flex flex-col mx-2 w-3/12">
       <TabsHeader
         placeholder=""
         className="rounded-none border-b border-blue-gray-50 bg-transparent p-0"
